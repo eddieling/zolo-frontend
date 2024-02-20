@@ -60,10 +60,12 @@ export const Home = () => {
 
   useEffect(() => {
     const offers = JSON.parse(localStorage.getItem("offers"));
-    if (offers.length === 0) {
+    if (!offers || offers.length === 0) {
       localStorage.setItem("offers", JSON.stringify(tempData));
+      setExistingOffers(tempData);
+    } else {
+      setExistingOffers(offers);
     }
-    setExistingOffers(offers);
   }, [localStorage.getItem("offers")]);
 
   const handleClickOpen = () => {
