@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import DialogTitle from "@mui/material/DialogTitle";
 import Dialog from "@mui/material/Dialog";
@@ -18,10 +18,9 @@ export function NewOfferDialog(props) {
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value, // becomes "somename: some value"
+      [e.target.name]: e.target.value,
     });
   };
-  console.log(formData);
 
   const onSubmit = () => {
     const offers = JSON.parse(localStorage.getItem("offers"));
@@ -30,7 +29,6 @@ export function NewOfferDialog(props) {
       ...formData,
     };
     offers.push(newOffer);
-    console.log("onSubmit offers", offers);
 
     localStorage.setItem("offers", JSON.stringify(offers));
     onClose();

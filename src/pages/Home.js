@@ -56,7 +56,7 @@ const tempData = [
 
 export const Home = () => {
   const [open, setOpen] = useState(false);
-  const [existingOffers, setExistingOffers] = useState([]); // [1, 2, 3, 4
+  const [existingOffers, setExistingOffers] = useState([]);
 
   useEffect(() => {
     const offers = JSON.parse(localStorage.getItem("offers"));
@@ -91,7 +91,7 @@ export const Home = () => {
             <TableCell>Share URL</TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
+        {/* <TableBody>
           {existingOffers.map((row) => (
             <TableRow
               key={row.name}
@@ -115,7 +115,7 @@ export const Home = () => {
               </TableCell>
             </TableRow>
           ))}
-        </TableBody>
+        </TableBody> */}
       </Table>
 
       <Button
