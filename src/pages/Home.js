@@ -91,31 +91,36 @@ export const Home = () => {
             <TableCell>Share URL</TableCell>
           </TableRow>
         </TableHead>
-        {/* <TableBody>
-          {existingOffers.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                <a target="_blank" href={`/offer/${row.id}`}>
-                  {row.name}
-                </a>
-              </TableCell>
-              <TableCell>{row.role}</TableCell>
-              <TableCell>{row.salary}</TableCell>
-              <TableCell>{row.bonus}</TableCell>
-              <TableCell>{row.equity}</TableCell>
-              <TableCell>
-                <Tooltip title="Copy">
-                  <IconButton aria-label="copy" onClick={() => handleCopy(row)}>
-                    <ContentCopyIcon />
-                  </IconButton>
-                </Tooltip>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody> */}
+        {existingOffers.length !== 0 && (
+          <TableBody>
+            {existingOffers.map((row) => (
+              <TableRow
+                key={row.name}
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              >
+                <TableCell component="th" scope="row">
+                  <a target="_blank" href={`/offer/${row.id}`}>
+                    {row.name}
+                  </a>
+                </TableCell>
+                <TableCell>{row.role}</TableCell>
+                <TableCell>{row.salary}</TableCell>
+                <TableCell>{row.bonus}</TableCell>
+                <TableCell>{row.equity}</TableCell>
+                <TableCell>
+                  <Tooltip title="Copy">
+                    <IconButton
+                      aria-label="copy"
+                      onClick={() => handleCopy(row)}
+                    >
+                      <ContentCopyIcon />
+                    </IconButton>
+                  </Tooltip>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        )}
       </Table>
 
       <Button
