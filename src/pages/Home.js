@@ -60,6 +60,9 @@ export const Home = () => {
 
   useEffect(() => {
     const offers = JSON.parse(localStorage.getItem("offers"));
+    if (offers.length === 0) {
+      localStorage.setItem("offers", JSON.stringify(tempData));
+    }
     setExistingOffers(offers);
   }, [localStorage.getItem("offers")]);
 
@@ -91,7 +94,7 @@ export const Home = () => {
             <TableCell>Share URL</TableCell>
           </TableRow>
         </TableHead>
-        {existingOffers.length !== 0 && (
+        {existingOffers.length > 0 && (
           <TableBody>
             {existingOffers.map((row) => (
               <TableRow
