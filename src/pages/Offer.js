@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styles from "../styles/Offer.module.css";
 
-export function Offer() {
+export const Offer = () => {
   const { id } = useParams();
   const offers = JSON.parse(localStorage.getItem("offers"));
   const [currentOffer, setCurrentOffer] = useState(null);
@@ -16,7 +16,7 @@ export function Offer() {
   return (
     <div className={styles.main}>
       <h1>Offer details</h1>
-      {/* {currentOffer && (
+      {currentOffer && (
         <div className={styles.container}>
           <div>Name: {currentOffer.name}</div>
           <div>Role: {currentOffer.role}</div>
@@ -34,7 +34,7 @@ export function Offer() {
           </div>
         </div>
       )}
-      {!currentOffer && <div>Offer not found</div>} */}
+      {!currentOffer && <div>Offer not found</div>}
     </div>
   );
-}
+};
